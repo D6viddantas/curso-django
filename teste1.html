@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title>Recipes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/fontawesome.min.css" integrity="sha512-lauN4D/0AgFUGvmMR+knQnbOADyD/XuQ8VF18I8Ll0+TLvsujshyxvU+uzogmQbSq6qJd5jnUdYtK8ShxXMlSg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/brands.min.css" integrity="sha512-7rXIvd/xj1FnI2zKQjjXzDFxC4twqBByp8yxOgEQJs4C/aNzNyoQsOO7VxH0RgYNhbAYLJLwzqslaP50KTTHIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/solid.min.css" integrity="sha512-bdqdas3Yr82pkTg5i0X1gcAT3tBXz/8H3J1ec7RyEKAvr/YiSCJNV2dnkukmL8CicjKb9rxmd+ILK8Kg2o2wvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 1.6rem;
+        }
+        body {
+            font-size: 1.6rem;
+            font-family: sans-serif;
+            background-color: #999b9e;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Slab', serif;
+        }
+        .container {
+            max-width: 144rem;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+        .main-heade-container {
+            background: #13141f;
+        }
+        .main-logo {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .search-form {
+            border: .2rem solid black;
+            max-width: 50rem;
+            margin: 0 auto;
+            border-radius: .4rem;
+            position: relative;
+            transition: all 300ms ease-in-out;
+        }
+        .main-logo-icon {
+            margin: 2rem;
+        }
+        .search-input, .search-button {
+            transition: all 300ms ease-in-out;
+            border: none;
+            background: none;
+            outline: none;
+            padding: 1rem;
+        }
+        .search-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .search-button:focus {
+            outline: 1px solid;
+            background: rgba(0, 0, 0, .8);
+        }
+        .search-input {
+            width: 100%;
+            padding-right: 4rem;
+        }
+        .search-form:focus-within {
+            border-color: white;
+            background-color: white;
+        }
+        .search-form:focus-within .search-button {
+            color: aqua;
+        }
+        .main-content {
+            padding-top: 0;
+            flex-wrap: wrap;
+        }
+        .main-content-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 4rem;
+        }
+        .recipe {
+            background: white;
+            box-shadow: -5px 5px 15px rgba(0, 0, 0, .3);
+            transition: all ease-in-out;
+            transform: scale(1);
+            border-radius: .5rem;
+            overflow: hidden;
+        }
+        .recipe img {
+            max-width: 100%;
+        }
+        .recipe:hover {
+            transform: scale(1.02);
+            box-shadow: -10px 10px 20px rgba(0, 0, 0, .3);
+        }
+        .recipe-title-container {
+            padding: 3rem;
+            padding-bottom: calc(3rem / 2);
+        }
+        .recipe-author {
+            padding: 0 3rem;
+        }
+        .recipe-content {
+            padding: 0 3rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .recipe-author-item {
+            color: #c2bebe;
+            padding-right: 1rem;
+        }
+        .recipe-author a {
+            color: #999b9e;
+            transition: all 300ms ease-in-out;
+            text-decoration: none;
+        }
+        .recipe-author a:hover {
+            color: black;
+        }
+        .recipe-meta-container {
+            padding: 3rem;
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .recipe-meta {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .recipe-footer a {
+            background: black;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 2em;
+            transition: all 500ms ease-in-out;
+        }
+        .recipe-footer a:hover {
+            filter: brightness(2);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-heade-container">
+        <div class="main-header container">
+            <a class="main-logo" href="/">
+                <h1>
+                    <i class="fa-solid fa-utensils main-logo-icon"></i>
+                    <span class="main-logo-text">Recipes</span>
+                </h1>
+            </a>
+        </div>
+    </header>
+    <div class="search-container">
+        <div class="container">
+            <form action="" class="search-form">
+                <input type="search" class="search-input" name="search">
+                <button type="submit" class="search-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <main class="main-content-container">
+        <div class="main-content main-content-list container">
+            <div class="recipe">
+                <img src="https://placehold.co/1288x740/000000/FFFFFF/png" alt="Placeholder">
+                <div class="recipe-title-container">
+                    <h2 class="recipe-title">Recipe Title</h2>
+                </div>
+                <div class="recipe-author">
+                    <span class="recipe-author-item">
+                        <i class="fas fa-user"></i> John Doe
+                    </span>
+                    <span class="recipe-author-item">
+                        <i class="fas fa-calendar-alt"></i> 16/10/2024
+                    </span>
+                    <span class="recipe-author-item">
+                        <a href="#"><i class="fas fa-layer-group"></i> Category</a>
+                    </span>
+                </div>
+                <div class="recipe-content">
+                    <p>Recipe description goes here...</p>
+                </div>
+                <div class="recipe-meta-container">
+                    <div class="recipe-meta">
+                        <h3 class="recipe-meta-title"><i class="fas fa-stopwatch"></i> Prep Time</h3>
+                        <div class="recipe-meta-text">10 minutes</div>
+                    </div>
+                    <div class="recipe-meta">
+                        <h3 class="recipe-meta-title"><i class="fas fa-pizza-slice"></i> Servings</h3>
+                        <div class="recipe-meta-text">2 servings</div>
+                    </div>
+                </div>
+                <footer class="recipe-footer">
+                    <a href="#">View More</a>
+                </footer>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
