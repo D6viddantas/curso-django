@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include "recipes/patials/head.html" %}
+   <title>{% block title %}{% endblock title %}Recipe</title>
+</head>
+<body>
+    {% include "recipes/patials/header.html" %}
+    {% include "recipes/patials/search.html"%}
+    <main class="main-content-container">
+       {% block content %}{% endblock content %}
+    </main>
+    {%include "recipes/patials/footer.html"%}
+</body>
+
+</html>
